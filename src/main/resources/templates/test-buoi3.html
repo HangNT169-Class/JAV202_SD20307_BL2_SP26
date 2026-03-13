@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Test buoi 3 - Spring boot</h1>
+<!--Khi lam viec voi form login/add/update...
+1. Method post
+2. type: submit cua button
+3. input phai co name: Muon lay gia tri cua input => bat buoc phai co name
+-->
+<!-- Voi thymeaft phai duoc dat trong 1 the khong de 1 minh-->
+<!--${name}-->
+<p th:text="${name}"></p>
+<form method="POST" action="/ket-qua">
+    Username: <input type="text" name="u1"/> <br/>
+    Password: <input type="password" name="p1"/> <br/>
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>
