@@ -15,7 +15,7 @@
 <select>
     <option th:each="sv:${lists}" th:text="${sv.ten}" th:value="${sv.mssv}"></option>
 </select>
-<button>Add Student</button>
+<a href="/sinh-vien/view-add">Add Student</a>
 <table border="1">
     <thead>
     <tr>
@@ -34,6 +34,21 @@
         <td th:text="${sv.tuoi}"></td>
         <td th:text="${sv.diaChi}"></td>
         <td th:text="${sv.gioiTinh}"></td>
+        <td>
+            <!--  Co the dung ? nhu cac mon ok. => @RequestParam
+                   C2: Pathvariable tren duong dan
+                   Cu phap thymeaft:
+                   1. ${ten bien} => controller
+                   2. @{} => thuong dung voi duong dan khi muon truyen gia tri tren duong dan
+                   3. *{} => thuong dung voi cac truong trong Object.
+                    -->
+            <!--            /sinh-vien/delete/SV01-->
+            <!--            /sinh-vien/delete/SV02-->
+            <!--            gia tri nao thay doi {gia tri doi}-->
+            <!--            int a = 5-->
+            <a th:href="@{/sinh-vien/delete/{ma1}(ma1=${sv.mssv})}">Delete</a>
+            <a th:href="@{/sinh-vien/detail/{a}(a=${sv.mssv})}">Update</a>
+        </td>
     </tr>
     </tbody>
 </table>

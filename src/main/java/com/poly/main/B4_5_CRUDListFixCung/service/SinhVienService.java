@@ -36,7 +36,8 @@ public class SinhVienService {
 
     public void removeSinhVien(String mssv) {
         // cu phap dung remove if: Xoa theo dk
-        listSinhVien.removeIf(s -> s.getMssv().equalsIgnoreCase(mssv));
+        listSinhVien.removeIf(s ->
+                s.getMssv().equalsIgnoreCase(mssv));
     }
 
     public SinhVien detailSinhVien(String mssv) {
