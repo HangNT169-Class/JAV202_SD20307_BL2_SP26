@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Load du lieu tu bang ca si len combobox-->
+Ten ca si:
+<select>
+    <option th:each="c:${listCaSi}" th:value="${c.id}" th:text="${c.tenCaSi}"></option>
+</select>
+<!--Load du lieu tu bang bai hat len table (co join vs bang ca si)-->
+<table border="1">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Ten bai hat</th>
+        <th>Ten tac gia</th>
+        <th>Gia</th>
+        <th>Ngay phat hanh</th>
+        <th>Ten ca si</th>
+        <th>Tuoi</th>
+        <th>Que quan</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="bh,i:${listBai}">
+            <td th:text="${i.count}"></td>
+            <td th:text="${bh.tenBaiHat}"></td>
+            <td th:text="${bh.tenTacGia}"></td>
+            <td th:text="${bh.gia}"></td>
+            <td th:text="${bh.ngayRaMat}"></td>
+            <td th:text="${bh.caSi1.tenCaSi}"></td>
+            <td th:text="${bh.caSi1.tuoi}"></td>
+            <td th:text="${bh.caSi1.queQuan}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,11 +1,8 @@
-package com.poly.main.B10_11_JPA.repository;
+package com.poly.main.B10_JPA.repository;
 
-import com.poly.main.B10_11_JPA.entity.Category1;
+import com.poly.main.B10_JPA.entity.Category1;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository // danh dau tang day la repo
 public interface CategoryRepository extends JpaRepository<Category1, Long> {
@@ -20,15 +17,15 @@ public interface CategoryRepository extends JpaRepository<Category1, Long> {
 
     // custom SQL
     // 1. JPQL - JPA Query Language => HQL => Truy van tren thuc the (Class): k co select *
-    @Query("""
-            SELECT c FROM Category1 c 
-            WHERE c.categoryName = ?2 AND c.categoryCode = ?1
-            """)
-    List<Category1> timKiemTheoTen(String code, String ten);
-    // 2. native query => Truy van tren SQL server => co the select *
-    @Query(value = """
-            SELECT * FROM category WHERE category_name = ?1
-            """, nativeQuery = true)
-    List<Category1> timKiemTheoTen1(String ten);
+//    @Query("""
+//            SELECT c FROM Category1 c
+//            WHERE c.categoryName = ?2 AND c.categoryCode = ?1
+//            """)
+//    List<Category1> timKiemTheoTen(String code, String ten);
+//    // 2. native query => Truy van tren SQL server => co the select *
+//    @Query(value = """
+//            SELECT * FROM category WHERE category_name = ?1
+//            """, nativeQuery = true)
+//    List<Category1> timKiemTheoTen1(String ten);
 
 }

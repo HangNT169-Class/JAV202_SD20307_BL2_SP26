@@ -1,6 +1,6 @@
-package com.poly.main.B10_11_JPA.controller;
+package com.poly.main.B10_JPA.controller;
 
-import com.poly.main.B10_11_JPA.repository.CategoryRepository;
+import com.poly.main.B10_JPA.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

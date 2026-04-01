@@ -1,4 +1,4 @@
-package com.poly.main.B10_11_JPA.entity;
+package com.poly.main.B10_JPA.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
