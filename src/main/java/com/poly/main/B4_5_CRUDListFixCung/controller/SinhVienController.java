@@ -2,10 +2,13 @@ package com.poly.main.B4_5_CRUDListFixCung.controller;
 
 import com.poly.main.B4_5_CRUDListFixCung.entity.SinhVien;
 import com.poly.main.B4_5_CRUDListFixCung.service.SinhVienService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,13 +47,26 @@ public class SinhVienController {
 
     // Bam vao button Add thi chuyen sang trang Add
     @GetMapping("view-add")
-    public String hienThiFormAdd() {
+    public String hienThiFormAdd(Model m) {
+        // Tao 1 object sv rong de truyen sang thymeaft sinh-viens
+        // phuc vu cho ham validate
+        m.addAttribute("sv", new SinhVien());
         return "buoi4/add-sinh-vien";
     }
 
+    // Binding Result phai được đặt ngay sau đối tượng cần validate
     @PostMapping("add")
-    public String addSinhVien(SinhVien sv) {
+    public String addSinhVien(@Valid @ModelAttribute("sv") SinhVien sv,
+                              BindingResult result) {
+        if (result.hasErrors()) {
+            return "buoi4/add-sinh-vien";
+        }
         sinhVienService.addSinhVien(sv);
         return "redirect:/sinh-vien/hien-thi";
     }
+//    @PostMapping("add")
+//    public String addSinhVien(SinhVien sv) {
+//        sinhVienService.addSinhVien(sv);
+//        return "redirect:/sinh-vien/hien-thi";
+//    }
 }

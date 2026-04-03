@@ -52,4 +52,13 @@ public class BaiHatController {
         Pageable pageable = PageRequest.of(pageNo,pageSize);
         return baiHatRepository.findAll(pageable); // cung dung findAll cho phan trang
     }
+    // 10 phan => get All. 3 phan tu/trang. Trang dau tien = 0
+    // trang 1 (0): 3 phan tu dau (1->3)
+    // trang 2: 3 phan tu (4 -> 6)
+    // trang 3: 3 phan tu (7-9)
+    // trang 4: 1 phan tu (1 phan tu)
+    // pageSize: so luong phan tu /trang(de bai se cho) = 5
+    // pageNo: so trang ( bat dau = 0)
+    // day len thymeaft: tutor, tu search
+    // validate => Spring Validation
 }
